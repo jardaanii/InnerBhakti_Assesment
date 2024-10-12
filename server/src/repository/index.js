@@ -48,6 +48,13 @@ class ProgramRepository {
     try {
       const track = new Track(data);
       await track.save();
+
+      await Program.findByIdAndUpdate(
+        data.program,
+        { $push: { tracks: track._id } },
+        { new: true }
+      );
+
       return track;
     } catch (error) {
       console.error("Error in ProgramRepository's createTrack:", error.message);
