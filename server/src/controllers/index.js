@@ -15,7 +15,7 @@ const createProgram = async (req, res, next) => {
 
 const getPrograms = async (req, res, next) => {
   try {
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 6 } = req.query;
     const result = await programService.getPrograms(
       parseInt(page),
       parseInt(limit)
