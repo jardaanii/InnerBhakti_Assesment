@@ -1,0 +1,4 @@
+.backdrop-filter-blur {
+  /* background-color: grey; */
+  backdrop-filter: blur(8px);
+}
