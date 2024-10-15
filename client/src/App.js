@@ -13,8 +13,6 @@ function App() {
           path="/track/:trackId"
           element={
             <Track
-              data={{ title: "Title", description: "Description" }}
-              audioUrl="http://streaming.tdiradio.com:8000/house.mp3"
               navigate={navigate}
             />
           }

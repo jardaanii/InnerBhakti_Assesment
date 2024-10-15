@@ -49,11 +49,9 @@ class ProgramRepository {
       const track = new Track(data);
       await track.save();
 
-      await Program.findByIdAndUpdate(
-        data.program,
-        { $push: { tracks: track._id } },
-        { new: true }
-      );
+      const prog = await Program.findById(data.program);
+      prog.tracks?.push(track._id.toString());
+      await prog.save();
 
       return track;
     } catch (error) {

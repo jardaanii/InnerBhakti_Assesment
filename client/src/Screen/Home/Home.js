@@ -42,7 +42,6 @@ export default function Home(props) {
           }}
           className="padding-large hide-scrollbar"
         >
-          {console.log(Array(12))}
 
           <div
             style={{

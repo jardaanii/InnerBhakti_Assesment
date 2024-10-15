@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-// import sampleAudio from "../../Assets/Sample.mp3";
 import {
   AudioLoading,
   BackIcon,
@@ -43,11 +42,10 @@ export default function Track(props) {
     >
       <img
         alt="background"
-        src={`${
-          isValidArray(programs) &&
+        src={`${isValidArray(programs) &&
           programs?.filter((program) => program?._id === src?.program)?.[0]
             ?.imageUrl
-        }`}
+          }`}
         style={{
           height: "100%",
           width: "100%",
@@ -164,12 +162,12 @@ const AudioPlayer = (props) => {
       props.src.length > 0
     ) {
       if (isValidObject(audio.current) && audio.current.tagName === "AUDIO") {
-        audio.current.addEventListener("timeupdate", function () {
+        audio.current.addEventListener("timeupdate", function() {
           if (isValidObject(audio.current)) {
             setCurrentTime(Math.ceil(audio.current.currentTime));
           }
         });
-        audio.current.addEventListener("durationchange", function () {
+        audio.current.addEventListener("durationchange", function() {
           if (
             isValidObject(audio.current) &&
             audio.current.tagName === "AUDIO" &&
@@ -185,11 +183,11 @@ const AudioPlayer = (props) => {
       }
     }
     return () => {
-      window.removeEventListener("timeupdate", function () {
+      window.removeEventListener("timeupdate", function() {
         setCurrentTime(0);
       });
 
-      window.removeEventListener("durationchange", function () {
+      window.removeEventListener("durationchange", function() {
         setDuration(0);
       });
     };
@@ -233,29 +231,26 @@ const AudioPlayer = (props) => {
             data-cy="audio-player-duration"
           >
             {currentTime > 0
-              ? `${Math.floor(currentTime / 60)}:${
-                  Math.ceil(currentTime % 60) > 9
-                    ? Math.ceil(currentTime % 60)
-                    : "0" + Math.ceil(currentTime % 60)
-                }`
+              ? `${Math.floor(currentTime / 60)}:${Math.ceil(currentTime % 60) > 9
+                ? Math.ceil(currentTime % 60)
+                : "0" + Math.ceil(currentTime % 60)
+              }`
               : duration > 0
-              ? `${Math.floor(duration / 60)}:${
-                  Math.ceil(duration % 60) > 9
-                    ? Math.ceil(duration % 60)
-                    : "0" + Math.ceil(duration % 60)
+                ? `${Math.floor(duration / 60)}:${Math.ceil(duration % 60) > 9
+                  ? Math.ceil(duration % 60)
+                  : "0" + Math.ceil(duration % 60)
                 }`
-              : "0:00"}
+                : "0:00"}
           </div>
           <div
             className="font-color-secondary font-size-small white-space-nowWrap audio-duration-content-size font-family-gilroy-regular"
             data-cy="audio-player-duration"
           >
             {props?.duration > 0
-              ? `${Math.floor(props?.duration / 60)}:${
-                  Math.ceil(props?.duration % 60) > 9
-                    ? Math.ceil(props?.duration % 60)
-                    : "0" + Math.ceil(props?.duration % 60)
-                }`
+              ? `${Math.floor(props?.duration / 60)}:${Math.ceil(props?.duration % 60) > 9
+                ? Math.ceil(props?.duration % 60)
+                : "0" + Math.ceil(props?.duration % 60)
+              }`
               : "0:00"}
           </div>
         </div>
