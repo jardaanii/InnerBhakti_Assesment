@@ -49,6 +49,11 @@ class ProgramRepository {
       await track.save();
 
       const prog = await Program.findById(data.program);
+
+      if (!prog) {
+        throw new Error("Invalid Program Id");
+      }
+
       prog.tracks?.push(track._id.toString());
       await prog.save();
 
