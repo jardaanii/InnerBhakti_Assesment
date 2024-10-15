@@ -1,4 +1,3 @@
-// services/programService.js
 const ProgramRepository = require("../repository/index");
 const { NotFoundError } = require("../utils/errors");
 
